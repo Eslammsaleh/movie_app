@@ -51,7 +51,7 @@ class _OnBoardingScreenState extends State<OnBoardingScreen> {
     {
       "image": "assets/image/onbording6.png",
       "title": "Start Watching Now",
-      "desc": "Enjoy your personalized movie experience right away!",
+      "desc": ".", // مش هنستخدمه
       "btn": "Finish",
     },
   ];
@@ -60,7 +60,7 @@ class _OnBoardingScreenState extends State<OnBoardingScreen> {
     final prefs = await SharedPreferences.getInstance();
     await prefs.setBool('seenOnboarding', true);
     if (!mounted) return;
-    Navigator.pushReplacementNamed(context, "/login"); // route بتاعك
+    Navigator.pushReplacementNamed(context, "/login");
   }
 
   @override
@@ -76,45 +76,39 @@ class _OnBoardingScreenState extends State<OnBoardingScreen> {
             fit: StackFit.expand,
             children: [
               Image.asset(page['image']!, fit: BoxFit.fill),
-              Align(
-                alignment: Alignment.bottomCenter,
-                child: Container(
-                  width: double.infinity,
-                  padding: const EdgeInsets.symmetric(
-                    horizontal: 20,
-                    vertical: 30,
-                  ),
-                  decoration: const BoxDecoration(
-                    color: Colors.black87,
-                    borderRadius: BorderRadius.vertical(
-                      top: Radius.circular(30),
-                    ),
-                  ),
-                  child: Column(
-                    mainAxisSize: MainAxisSize.min,
-                    children: [
-                      Text(
-                        page['title']!,
-                        textAlign: TextAlign.center,
-                        style: const TextStyle(
-                          fontSize: 20,
-                          fontWeight: FontWeight.bold,
-                          color: Colors.white,
-                        ),
-                      ),
-                      const SizedBox(height: 12),
-                      Text(
-                        page['desc']!,
-                        textAlign: TextAlign.center,
-                        style: const TextStyle(
-                          fontSize: 14,
-                          color: Colors.white70,
-                        ),
-                      ),
-                      const SizedBox(height: 30),
 
-                      // الأزرار
-                      if (i == 0) // أول صفحة: زرار واحد
+              // أول صفحة: الزرار فوق الصورة
+              if (i == 0)
+                Align(
+                  alignment: Alignment.bottomCenter,
+                  child: Padding(
+                    padding: const EdgeInsets.only(
+                      left: 20,
+                      right: 20,
+                      bottom: 40,
+                    ),
+                    child: Column(
+                      mainAxisSize: MainAxisSize.min,
+                      children: [
+                        Text(
+                          page['title']!,
+                          textAlign: TextAlign.center,
+                          style: const TextStyle(
+                            fontSize: 20,
+                            fontWeight: FontWeight.bold,
+                            color: Colors.white,
+                          ),
+                        ),
+                        const SizedBox(height: 12),
+                        Text(
+                          page['desc']!,
+                          textAlign: TextAlign.center,
+                          style: const TextStyle(
+                            fontSize: 14,
+                            color: Colors.white70,
+                          ),
+                        ),
+                        const SizedBox(height: 30),
                         ElevatedButton(
                           style: ElevatedButton.styleFrom(
                             backgroundColor: Colors.yellow,
@@ -130,74 +124,126 @@ class _OnBoardingScreenState extends State<OnBoardingScreen> {
                             );
                           },
                           child: Text(page['btn']!),
-                        )
-                      else if (i == 1) // تاني صفحة: زرار Next بس
-  ElevatedButton(
-    style: ElevatedButton.styleFrom(
-      backgroundColor: Colors.yellow,
-      foregroundColor: Colors.black,
-      minimumSize: const Size.fromHeight(45), // ✨ نفس العرض والطول
-      shape: RoundedRectangleBorder(
-        borderRadius: BorderRadius.circular(8), // نفس الـ radius بتاع الباقيين
-      ),
-    ),
-    onPressed: () {
-      _controller.nextPage(
-        duration: const Duration(milliseconds: 300),
-        curve: Curves.easeInOut,
-      );
-    },
-    child: Text(page['btn']!),
-  )
-
-                      else // باقي الصفحات: زرارين تحت بعض
-                        Column(
-                          children: [
-                            ElevatedButton(
-                              style: ElevatedButton.styleFrom(
-                                backgroundColor: Colors.yellow,
-                                foregroundColor: Colors.black,
-                                minimumSize: const Size.fromHeight(45),
-                                shape: RoundedRectangleBorder(
-                                  borderRadius: BorderRadius.circular(8),
-                                ),
-                              ),
-                              onPressed: () {
-                                if (i == pages.length - 1) {
-                                  _finishOnboarding();
-                                } else {
-                                  _controller.nextPage(
-                                    duration: const Duration(milliseconds: 300),
-                                    curve: Curves.easeInOut,
-                                  );
-                                }
-                              },
-                              child: Text(page['btn']!),
-                            ),
-                            const SizedBox(height: 12),
-                            OutlinedButton(
-                              style: OutlinedButton.styleFrom(
-                                side: const BorderSide(color: Colors.yellow),
-                                foregroundColor: Colors.yellow,
-                                minimumSize: const Size.fromHeight(45),
-                                shape: RoundedRectangleBorder(
-                                  borderRadius: BorderRadius.circular(8),
-                                ),
-                              ),
-                              onPressed: () {
-                                _controller.previousPage(
-                                  duration: const Duration(milliseconds: 300),
-                                  curve: Curves.easeInOut,
-                                );
-                              },
-                              child: const Text("Back"),
-                            ),
-                          ],
                         ),
-                    ],
+                      ],
+                    ),
+                  ),
+                )
+              else
+                // باقي الصفحات: جوه Container أسود
+                Align(
+                  alignment: Alignment.bottomCenter,
+                  child: Container(
+                    width: double.infinity,
+                    padding: const EdgeInsets.symmetric(
+                      horizontal: 10,//20
+                      vertical: 20,//30
+                    ),
+                    decoration: const BoxDecoration(
+                      color: Colors.black87,
+                      borderRadius: BorderRadius.vertical(
+                        top: Radius.circular(30),
+                      ),
+                    ),
+                    child: Column(
+                      mainAxisSize: MainAxisSize.min,
+                      children: [
+                        Text(
+                          page['title']!,
+                          textAlign: TextAlign.center,
+                          style: const TextStyle(
+                            fontSize: 20,
+                            fontWeight: FontWeight.bold,
+                            color: Colors.white,
+                          ),
+                        ),
+
+                        // الوصف يظهر إلا في آخر صفحة
+                        if (i != pages.length - 1) ...[
+                          const SizedBox(height: 12),
+                          Text(
+                            page['desc']!,
+                            textAlign: TextAlign.center,
+                            style: const TextStyle(
+                              fontSize: 14,
+                              color: Colors.white70,
+                            ),
+                          ),
+                          const SizedBox(height: 30),
+                        ] else
+                          const SizedBox(height: 20),
+
+                        // الأزرار
+                        if (i == 1)
+                          ElevatedButton(
+                            style: ElevatedButton.styleFrom(
+                              backgroundColor: Colors.yellow,
+                              foregroundColor: Colors.black,
+                              minimumSize: const Size.fromHeight(45),
+                              shape: RoundedRectangleBorder(
+                                borderRadius: BorderRadius.circular(8),
+                              ),
+                            ),
+                            onPressed: () {
+                              _controller.nextPage(
+                                duration: const Duration(milliseconds: 300),
+                                curve: Curves.easeInOut,
+                              );
+                            },
+                            child: Text(page['btn']!),
+                          )
+                        else
+                          Column(
+                            children: [
+                              ElevatedButton(
+                                style: ElevatedButton.styleFrom(
+                                  backgroundColor: Colors.yellow,
+                                  foregroundColor: Colors.black,
+                                  minimumSize: const Size.fromHeight(45),
+                                  shape: RoundedRectangleBorder(
+                                    borderRadius: BorderRadius.circular(8),
+                                  ),
+                                ),
+                                onPressed: () {
+                                  if (i == pages.length - 1) {
+                                    _finishOnboarding();
+                                  } else {
+                                    _controller.nextPage(
+                                      duration: const Duration(
+                                        milliseconds: 300,
+                                      ),
+                                      curve: Curves.easeInOut,
+                                    );
+                                  }
+                                },
+                                child: Text(page['btn']!),
+                              ),
+                              const SizedBox(height: 12),
+                              if (i != pages.length - 1)
+                                OutlinedButton(
+                                  style: OutlinedButton.styleFrom(
+                                    side: const BorderSide(color: Colors.yellow),
+                                    foregroundColor: Colors.yellow,
+                                    minimumSize: const Size.fromHeight(45),
+                                    shape: RoundedRectangleBorder(
+                                      borderRadius: BorderRadius.circular(8),
+                                    ),
+                                  ),
+                                  onPressed: () {
+                                    _controller.previousPage(
+                                      duration:
+                                          const Duration(milliseconds: 300),
+                                      curve: Curves.easeInOut,
+                                    );
+                                  },
+                                  child: const Text("Back"),
+                                ),
+                            ],
+                          ),
+                      ],
+                    ),
                   ),
                 ),
-              ),
             ],
           );
         },
