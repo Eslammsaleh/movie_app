@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'routes.dart';
+import 'package:flutter_application_1/app_routes.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -15,7 +15,7 @@ class MyApp extends StatelessWidget {
       title: 'Movie App',
       theme: ThemeData.dark(useMaterial3: true),
       debugShowCheckedModeBanner: false,
-      initialRoute: AppRoutes.splash, // البداية من SplashScreen
+      initialRoute:AppRoutes.splash, // You can change to AppRoutes.main to test
       routes: AppRoutes.routes,
     );
   }

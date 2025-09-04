@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_application_1/app_routes.dart';
+import 'package:flutter_application_1/screens/forget_password.dart';
 
 class LoginPage extends StatelessWidget {
   const LoginPage({super.key});
@@ -14,10 +16,9 @@ class LoginPage extends StatelessWidget {
             child: Column(
               children: [
                 // Logo
-               
-            Image.asset(
-             "assets/image/logo.png",
-                height: 100,
+                Image.asset(
+                  "assets/image/logo.png",
+                  height: 100,
                 ),
 
                 const SizedBox(height: 40),
@@ -45,7 +46,8 @@ class LoginPage extends StatelessWidget {
                   decoration: InputDecoration(
                     hintText: "Password",
                     prefixIcon: const Icon(Icons.lock, color: Colors.white),
-                    suffixIcon: const Icon(Icons.visibility, color: Colors.white),
+                    suffixIcon:
+                    const Icon(Icons.visibility, color: Colors.white),
                     filled: true,
                     fillColor: Colors.grey[900],
                     hintStyle: const TextStyle(color: Colors.white70),
@@ -62,7 +64,14 @@ class LoginPage extends StatelessWidget {
                 Align(
                   alignment: Alignment.centerRight,
                   child: TextButton(
-                    onPressed: () {},
+                    onPressed: () {
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                          builder: (context) => const ForgetPassword(),
+                        ),
+                      );
+                    },
                     child: const Text(
                       "Forget Password ?",
                       style: TextStyle(color: Colors.yellow),
@@ -76,7 +85,9 @@ class LoginPage extends StatelessWidget {
                   width: double.infinity,
                   child: ElevatedButton(
                     onPressed: () {
-                      Navigator.pushReplacementNamed(context, "/home");
+                      // ✅ Navigate to MainPage
+                      Navigator.pushReplacementNamed(
+                          context, AppRoutes.main);
                     },
                     style: ElevatedButton.styleFrom(
                       backgroundColor: Colors.yellow,
@@ -101,7 +112,8 @@ class LoginPage extends StatelessWidget {
                     ),
                     GestureDetector(
                       onTap: () {
-                        Navigator.pushReplacementNamed(context, "/signup");
+                        Navigator.pushReplacementNamed(
+                            context, AppRoutes.signup);
                       },
                       child: const Text(
                         "Create One",
@@ -121,7 +133,8 @@ class LoginPage extends StatelessWidget {
                     Expanded(child: Divider(color: Colors.white24)),
                     Padding(
                       padding: EdgeInsets.symmetric(horizontal: 10),
-                      child: Text("OR", style: TextStyle(color: Colors.white70)),
+                      child: Text("OR",
+                          style: TextStyle(color: Colors.white70)),
                     ),
                     Expanded(child: Divider(color: Colors.white24)),
                   ],
@@ -133,7 +146,8 @@ class LoginPage extends StatelessWidget {
                   width: double.infinity,
                   child: OutlinedButton.icon(
                     onPressed: () {},
-                    icon: const Icon(Icons.g_mobiledata, color: Colors.yellow, size: 30),
+                    icon: const Icon(Icons.g_mobiledata,
+                        color: Colors.yellow, size: 30),
                     label: const Text(
                       "Login With Google",
                       style: TextStyle(color: Colors.yellow),
