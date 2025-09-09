@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_application_1/constant/colors_pallet.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 class OnBoardingScreen extends StatefulWidget {
@@ -96,7 +97,7 @@ class _OnBoardingScreenState extends State<OnBoardingScreen> {
                           style: const TextStyle(
                             fontSize: 20,
                             fontWeight: FontWeight.bold,
-                            color: Colors.white,
+                            color: ColorsPallet.white,
                           ),
                         ),
                         const SizedBox(height: 12),
@@ -111,8 +112,8 @@ class _OnBoardingScreenState extends State<OnBoardingScreen> {
                         const SizedBox(height: 30),
                         ElevatedButton(
                           style: ElevatedButton.styleFrom(
-                            backgroundColor: Colors.yellow,
-                            foregroundColor: Colors.black,
+                            backgroundColor: ColorsPallet.primaryColor,
+                            foregroundColor: ColorsPallet.black,
                             shape: RoundedRectangleBorder(
                               borderRadius: BorderRadius.circular(8),
                             ),
@@ -154,7 +155,7 @@ class _OnBoardingScreenState extends State<OnBoardingScreen> {
                           style: const TextStyle(
                             fontSize: 20,
                             fontWeight: FontWeight.bold,
-                            color: Colors.white,
+                            color: ColorsPallet.white,
                           ),
                         ),
 
@@ -177,8 +178,8 @@ class _OnBoardingScreenState extends State<OnBoardingScreen> {
                         if (i == 1)
                           ElevatedButton(
                             style: ElevatedButton.styleFrom(
-                              backgroundColor: Colors.yellow,
-                              foregroundColor: Colors.black,
+                              backgroundColor: ColorsPallet.black,
+                              foregroundColor: ColorsPallet.primaryColor,
                               minimumSize: const Size.fromHeight(45),
                               shape: RoundedRectangleBorder(
                                 borderRadius: BorderRadius.circular(8),
@@ -197,8 +198,8 @@ class _OnBoardingScreenState extends State<OnBoardingScreen> {
                             children: [
                               ElevatedButton(
                                 style: ElevatedButton.styleFrom(
-                                  backgroundColor: Colors.yellow,
-                                  foregroundColor: Colors.black,
+                                  backgroundColor:ColorsPallet.primaryColor,
+                                  foregroundColor: ColorsPallet.black,
                                   minimumSize: const Size.fromHeight(45),
                                   shape: RoundedRectangleBorder(
                                     borderRadius: BorderRadius.circular(8),
@@ -222,8 +223,8 @@ class _OnBoardingScreenState extends State<OnBoardingScreen> {
                               if (i != pages.length - 1)
                                 OutlinedButton(
                                   style: OutlinedButton.styleFrom(
-                                    side: const BorderSide(color: Colors.yellow),
-                                    foregroundColor: Colors.yellow,
+                                    side: const BorderSide(color: ColorsPallet.primaryColor),
+                                    foregroundColor: ColorsPallet.primaryColor,
                                     minimumSize: const Size.fromHeight(45),
                                     shape: RoundedRectangleBorder(
                                       borderRadius: BorderRadius.circular(8),

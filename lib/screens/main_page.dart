@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_application_1/constant/colors_pallet.dart';
 import 'package:flutter_application_1/layout/profile/profile.dart';
 
 class MainPage extends StatefulWidget {
@@ -12,9 +13,9 @@ class _MainPageState extends State<MainPage> {
   int _currentIndex = 0;
 
   final List<Widget> _pages = [
-    const Center(child: Text('Home', style: TextStyle(color: Colors.white))),
-    const Center(child: Text('Search', style: TextStyle(color: Colors.white))),
-    const Center(child: Text('Browse', style: TextStyle(color: Colors.white))),
+    const Center(child: Text('Home', style: TextStyle(color: ColorsPallet.white))),
+    const Center(child: Text('Search', style: TextStyle(color: ColorsPallet.white))),
+    const Center(child: Text('Browse', style: TextStyle(color: ColorsPallet.white))),
     const Profile(),
   ];
 
@@ -27,7 +28,7 @@ class _MainPageState extends State<MainPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.black,
+      backgroundColor: ColorsPallet.black,
       extendBody: true,
       body: IndexedStack(
         index: _currentIndex,
@@ -54,8 +55,8 @@ class _MainPageState extends State<MainPage> {
               onTap: _onItemTapped,
               backgroundColor: Colors.transparent,
               elevation: 0,
-              selectedItemColor: Colors.yellow,
-              unselectedItemColor: Colors.white,
+              selectedItemColor: ColorsPallet.primaryColor,
+              unselectedItemColor: ColorsPallet.white,
               showSelectedLabels: false,
               showUnselectedLabels: false,
               type: BottomNavigationBarType.fixed,

@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_application_1/constant/app_constant.dart';
+import 'package:flutter_application_1/constant/assets_maneger.dart';
 
 class AvatarSelector extends StatefulWidget {
   const AvatarSelector({super.key});
@@ -10,45 +10,76 @@ class AvatarSelector extends StatefulWidget {
 
 class _AvatarSelectorState extends State<AvatarSelector> {
   final List<String> avatars = [
-    AppConstant.avatar1,
-    AppConstant.avatar2,
-    AppConstant.avatar3,
+    AssetsManeger.avatarOne,
+    AssetsManeger.avatarTwo,
+    AssetsManeger.avatarThree,
+    AssetsManeger.avatarFour,
+    AssetsManeger.avatarFive,
+    AssetsManeger.avatarSix,
+    AssetsManeger.avatarSeven,
+    AssetsManeger.avatarEight,
+    AssetsManeger.avatarNine,
   ];
 
-  String? selectedAvatar;
+  late PageController _pageController;
+  int currentPage = 0;
+
+  @override
+  void initState() {
+    super.initState();
+    _pageController = PageController(
+      viewportFraction: 0.5, // show part of left & right
+      initialPage: 0,
+    );
+  }
 
   @override
   Widget build(BuildContext context) {
-    return SizedBox(
-      height: 130, // اضبط ارتفاع أكبر من radius عشان الصور تبان تمام
-      child: ListView.builder(
-        scrollDirection: Axis.horizontal,
-        padding: const EdgeInsets.symmetric(horizontal: 4),
-        itemCount: avatars.length,
-        itemBuilder: (context, index) {
-          final avatar = avatars[index];
-          final isSelected = selectedAvatar == avatar;
+    return Column(
+      mainAxisAlignment: MainAxisAlignment.center,
+      children: [
+        const Text(
+          "Avatar",
+          style: TextStyle(
+            fontSize: 18,
+            fontWeight: FontWeight.bold,
+            color: Colors.white,
+          ),
+        ),
+        const SizedBox(height: 20),
 
-          return Center(
-            // يخلّي الصورة في وسط الصف
-            child: GestureDetector(
-              onTap: () {
-                setState(() {
-                  selectedAvatar = avatar;
-                });
-              },
-              child: AnimatedContainer(
-                duration: const Duration(milliseconds: 200),
-                margin: const EdgeInsets.symmetric(horizontal: 8),
-                child: CircleAvatar(
-                  radius: isSelected ? 56 : 51, // يكبر شوية لو مختار
-                  backgroundImage: AssetImage(avatar),
-                ),
-              ),
-            ),
-          );
-        },
-      ),
+        SizedBox(
+          height: 250,
+          child: PageView.builder(
+            controller: _pageController,
+            itemCount: avatars.length,
+            onPageChanged: (index) {
+              setState(() {
+                currentPage = index;
+              });
+            },
+            itemBuilder: (context, index) {
+              // Distance from current page
+              double scale = currentPage == index ? 1.0 : 0.7;
+
+              return TweenAnimationBuilder(
+                tween: Tween<double>(begin: scale, end: scale),
+                duration: const Duration(milliseconds: 300),
+                curve: Curves.ease,
+                builder: (context, value, child) {
+                  return Transform.scale(
+                    scale: value,
+                    child: CircleAvatar(
+                      radius: 80,
+                      backgroundImage: AssetImage(avatars[index]),
+                    ),
+                  );
+                },
+              );
+            },
+          ),
+        ),
+      ],
     );
   }
 }

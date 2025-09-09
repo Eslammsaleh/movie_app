@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_application_1/constant/colors_pallet.dart';
 
 class ForgetPassword extends StatelessWidget {
   const ForgetPassword({super.key});
@@ -6,17 +7,17 @@ class ForgetPassword extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.black,
+      backgroundColor: ColorsPallet.black,
       appBar: AppBar(
-        backgroundColor: Colors.black,
+        backgroundColor: ColorsPallet.black,
         elevation: 0,
         leading: IconButton(
-          icon: const Icon(Icons.arrow_back, color: Colors.yellow),
+          icon: const Icon(Icons.arrow_back, color: ColorsPallet.primaryColor),
           onPressed: () => Navigator.pop(context),
         ),
         title: const Text(
           "Forget Password",
-          style: TextStyle(color: Colors.yellow),
+          style: TextStyle(color: ColorsPallet.primaryColor),
         ),
         centerTitle: true,
       ),
@@ -37,7 +38,7 @@ class ForgetPassword extends StatelessWidget {
               TextField(
                 decoration: InputDecoration(
                   hintText: "Email",
-                  prefixIcon: const Icon(Icons.email, color: Colors.white),
+                  prefixIcon: const Icon(Icons.email, color: ColorsPallet.white),
                   filled: true,
                   fillColor: Colors.grey[900],
                   hintStyle: const TextStyle(color: Colors.white70),
@@ -46,7 +47,7 @@ class ForgetPassword extends StatelessWidget {
                     borderSide: BorderSide.none,
                   ),
                 ),
-                style: const TextStyle(color: Colors.white),
+                style: const TextStyle(color: ColorsPallet.white),
               ),
               const SizedBox(height: 20),
 
@@ -58,8 +59,8 @@ class ForgetPassword extends StatelessWidget {
                     // TODO: Add your email verification logic here
                   },
                   style: ElevatedButton.styleFrom(
-                    backgroundColor: Colors.yellow,
-                    foregroundColor: Colors.black,
+                    backgroundColor:ColorsPallet.primaryColor,
+                    foregroundColor: ColorsPallet.black,
                     padding: const EdgeInsets.symmetric(vertical: 14),
                     shape: RoundedRectangleBorder(
                       borderRadius: BorderRadius.circular(12),

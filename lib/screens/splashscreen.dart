@@ -20,7 +20,7 @@ class _SplashScreenState extends State<SplashScreen> {
     final prefs = await SharedPreferences.getInstance();
     final seenOnboarding = prefs.getBool('seenOnboarding') ?? false;
 
-    await Future.delayed(const Duration(seconds: 3)); // مدة عرض Splash
+    await Future.delayed(const Duration(seconds: 3));
 
     if (!mounted) return;
 
@@ -37,7 +37,7 @@ class _SplashScreenState extends State<SplashScreen> {
       body: SizedBox.expand(
         child: Image.asset(
           "assets/image/Splash Screen (4).png",
-          fit: BoxFit.fill, // خلي الصورة تغطي الشاشة كلها
+          fit: BoxFit.fill,
         ),
       ),
     );

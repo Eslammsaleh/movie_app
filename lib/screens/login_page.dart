@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_application_1/app_routes.dart';
+import 'package:flutter_application_1/constant/colors_pallet.dart';
 import 'package:flutter_application_1/screens/forget_password.dart';
 
 class LoginPage extends StatelessWidget {
@@ -8,14 +9,13 @@ class LoginPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.black,
+      backgroundColor: ColorsPallet.black,
       body: Padding(
         padding: const EdgeInsets.all(20.0),
         child: Center(
           child: SingleChildScrollView(
             child: Column(
               children: [
-                // Logo
                 Image.asset(
                   "assets/image/logo.png",
                   height: 100,
@@ -23,11 +23,10 @@ class LoginPage extends StatelessWidget {
 
                 const SizedBox(height: 40),
 
-                // Email
                 TextField(
                   decoration: InputDecoration(
                     hintText: "Email",
-                    prefixIcon: const Icon(Icons.email, color: Colors.white),
+                    prefixIcon: const Icon(Icons.email, color: ColorsPallet.white),
                     filled: true,
                     fillColor: Colors.grey[900],
                     hintStyle: const TextStyle(color: Colors.white70),
@@ -36,18 +35,17 @@ class LoginPage extends StatelessWidget {
                       borderSide: BorderSide.none,
                     ),
                   ),
-                  style: const TextStyle(color: Colors.white),
+                  style: const TextStyle(color: ColorsPallet.white),
                 ),
                 const SizedBox(height: 20),
 
-                // Password
                 TextField(
                   obscureText: true,
                   decoration: InputDecoration(
                     hintText: "Password",
-                    prefixIcon: const Icon(Icons.lock, color: Colors.white),
+                    prefixIcon: const Icon(Icons.lock, color: ColorsPallet.white),
                     suffixIcon:
-                    const Icon(Icons.visibility, color: Colors.white),
+                    const Icon(Icons.visibility, color: ColorsPallet.white),
                     filled: true,
                     fillColor: Colors.grey[900],
                     hintStyle: const TextStyle(color: Colors.white70),
@@ -56,7 +54,7 @@ class LoginPage extends StatelessWidget {
                       borderSide: BorderSide.none,
                     ),
                   ),
-                  style: const TextStyle(color: Colors.white),
+                  style: const TextStyle(color: ColorsPallet.white),
                 ),
                 const SizedBox(height: 10),
 
@@ -74,7 +72,7 @@ class LoginPage extends StatelessWidget {
                     },
                     child: const Text(
                       "Forget Password ?",
-                      style: TextStyle(color: Colors.yellow),
+                      style: TextStyle(color: ColorsPallet.primaryColor),
                     ),
                   ),
                 ),
@@ -85,13 +83,12 @@ class LoginPage extends StatelessWidget {
                   width: double.infinity,
                   child: ElevatedButton(
                     onPressed: () {
-                      // ✅ Navigate to MainPage
                       Navigator.pushReplacementNamed(
                           context, AppRoutes.main);
                     },
                     style: ElevatedButton.styleFrom(
-                      backgroundColor: Colors.yellow,
-                      foregroundColor: Colors.black,
+                      backgroundColor:ColorsPallet.primaryColor,
+                      foregroundColor:ColorsPallet.black,
                       padding: const EdgeInsets.symmetric(vertical: 14),
                       shape: RoundedRectangleBorder(
                         borderRadius: BorderRadius.circular(12),
@@ -118,7 +115,7 @@ class LoginPage extends StatelessWidget {
                       child: const Text(
                         "Create One",
                         style: TextStyle(
-                          color: Colors.yellow,
+                          color:ColorsPallet.primaryColor,
                           fontWeight: FontWeight.bold,
                         ),
                       ),
@@ -130,13 +127,13 @@ class LoginPage extends StatelessWidget {
                 // Divider
                 Row(
                   children: const [
-                    Expanded(child: Divider(color: Colors.white24)),
+                    Expanded(child: Divider(color: ColorsPallet.gray)),
                     Padding(
                       padding: EdgeInsets.symmetric(horizontal: 10),
                       child: Text("OR",
                           style: TextStyle(color: Colors.white70)),
                     ),
-                    Expanded(child: Divider(color: Colors.white24)),
+                    Expanded(child: Divider(color: ColorsPallet.gray)),
                   ],
                 ),
                 const SizedBox(height: 20),
@@ -147,13 +144,13 @@ class LoginPage extends StatelessWidget {
                   child: OutlinedButton.icon(
                     onPressed: () {},
                     icon: const Icon(Icons.g_mobiledata,
-                        color: Colors.yellow, size: 30),
+                        color:ColorsPallet.primaryColor, size: 30),
                     label: const Text(
                       "Login With Google",
-                      style: TextStyle(color: Colors.yellow),
+                      style: TextStyle(color:ColorsPallet.primaryColor),
                     ),
                     style: OutlinedButton.styleFrom(
-                      side: const BorderSide(color: Colors.yellow),
+                      side: const BorderSide(color:ColorsPallet.primaryColor),
                       padding: const EdgeInsets.symmetric(vertical: 14),
                       shape: RoundedRectangleBorder(
                         borderRadius: BorderRadius.circular(12),

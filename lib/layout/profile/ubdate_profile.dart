@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_application_1/constant/assets_maneger.dart';
+import 'package:flutter_application_1/constant/colors_pallet.dart';
 
 
 class UbdateProfile extends StatefulWidget {
@@ -10,8 +11,8 @@ class UbdateProfile extends StatefulWidget {
 }
 
 class _UbdateProfileState extends State<UbdateProfile> {
-  final nameController = TextEditingController(text: "John Safwat");
-  final phoneController = TextEditingController(text: "01200000000");
+  final nameController = TextEditingController(text: "zomaaaa");
+  final phoneController = TextEditingController(text: "012000000");
 
   bool isEditingName = false;
   bool isEditingPhone = false;
@@ -33,7 +34,7 @@ class _UbdateProfileState extends State<UbdateProfile> {
   void _showAvatarPicker() {
     showModalBottomSheet(
       context: context,
-      backgroundColor: Colors.black,
+      backgroundColor: ColorsPallet.black,
       shape: const RoundedRectangleBorder(
         borderRadius: BorderRadius.vertical(top: Radius.circular(20)),
       ),
@@ -61,7 +62,7 @@ class _UbdateProfileState extends State<UbdateProfile> {
                   decoration: BoxDecoration(
                     border: Border.all(
                       color: selectedAvatar == avatar
-                          ? Colors.yellow
+                          ? ColorsPallet.primaryColor
                           : Colors.transparent,
                       width: 3,
                     ),
@@ -83,19 +84,19 @@ class _UbdateProfileState extends State<UbdateProfile> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.black,
+      backgroundColor:ColorsPallet.black,
       appBar: AppBar(
-        backgroundColor: Colors.black,
+        backgroundColor: ColorsPallet.black,
         elevation: 0,
         leading: IconButton(
-          icon: const Icon(Icons.arrow_back, color: Colors.yellow),
+          icon: const Icon(Icons.arrow_back, color: ColorsPallet.primaryColor),
           onPressed: () {
             Navigator.pop(context);
           },
         ),
         title: const Text(
           "Pick Avatar",
-          style: TextStyle(color: Colors.yellow),
+          style: TextStyle(color: ColorsPallet.primaryColor),
         ),
         centerTitle: true,
       ),
@@ -130,10 +131,10 @@ class _UbdateProfileState extends State<UbdateProfile> {
                     isEditingName = false;
                   });
                 },
-                style: const TextStyle(color: Colors.white),
+                style: const TextStyle(color: ColorsPallet.white),
                 decoration: InputDecoration(
                   prefixIcon:
-                  const Icon(Icons.person, color: Colors.white),
+                  const Icon(Icons.person, color: ColorsPallet.white),
                   filled: true,
                   fillColor: Colors.grey[900],
                   border: OutlineInputBorder(
@@ -151,11 +152,11 @@ class _UbdateProfileState extends State<UbdateProfile> {
                 ),
                 child: Row(
                   children: [
-                    const Icon(Icons.person, color: Colors.white),
+                    const Icon(Icons.person, color: ColorsPallet.white),
                     const SizedBox(width: 10),
                     Text(
                       nameController.text,
-                      style: const TextStyle(color: Colors.white),
+                      style: const TextStyle(color: ColorsPallet.white),
                     ),
                   ],
                 ),
@@ -180,10 +181,10 @@ class _UbdateProfileState extends State<UbdateProfile> {
                     isEditingPhone = false;
                   });
                 },
-                style: const TextStyle(color: Colors.white),
+                style: const TextStyle(color:ColorsPallet.white),
                 decoration: InputDecoration(
                   prefixIcon:
-                  const Icon(Icons.phone, color: Colors.white),
+                  const Icon(Icons.phone, color:ColorsPallet.white),
                   filled: true,
                   fillColor: Colors.grey[900],
                   border: OutlineInputBorder(
@@ -201,11 +202,11 @@ class _UbdateProfileState extends State<UbdateProfile> {
                 ),
                 child: Row(
                   children: [
-                    const Icon(Icons.phone, color: Colors.white),
+                    const Icon(Icons.phone, color: ColorsPallet.white),
                     const SizedBox(width: 10),
                     Text(
                       phoneController.text,
-                      style: const TextStyle(color: Colors.white),
+                      style: const TextStyle(color: ColorsPallet.white),
                     ),
                   ],
                 ),
@@ -218,7 +219,7 @@ class _UbdateProfileState extends State<UbdateProfile> {
               alignment: Alignment.centerLeft,
               child: Text(
                 "Reset Password",
-                style: TextStyle(color: Colors.white, fontSize: 16),
+                style: TextStyle(color: ColorsPallet.white, fontSize: 16),
               ),
             ),
             const Spacer(),
@@ -229,7 +230,7 @@ class _UbdateProfileState extends State<UbdateProfile> {
               height: 50,
               child: ElevatedButton(
                 style: ElevatedButton.styleFrom(
-                  backgroundColor: Colors.red,
+                  backgroundColor: ColorsPallet.red,
                   shape: RoundedRectangleBorder(
                     borderRadius: BorderRadius.circular(10),
                   ),
@@ -237,7 +238,7 @@ class _UbdateProfileState extends State<UbdateProfile> {
                 onPressed: () {},
                 child: const Text(
                   "Delete Account",
-                  style: TextStyle(fontSize: 18, color: Colors.white),
+                  style: TextStyle(fontSize: 18, color:ColorsPallet.white),
                 ),
               ),
             ),
@@ -249,7 +250,7 @@ class _UbdateProfileState extends State<UbdateProfile> {
               height: 50,
               child: ElevatedButton(
                 style: ElevatedButton.styleFrom(
-                  backgroundColor: Colors.yellow,
+                  backgroundColor:ColorsPallet.primaryColor,
                   shape: RoundedRectangleBorder(
                     borderRadius: BorderRadius.circular(10),
                   ),
@@ -261,7 +262,7 @@ class _UbdateProfileState extends State<UbdateProfile> {
                 },
                 child: const Text(
                   "Update Data",
-                  style: TextStyle(fontSize: 18, color: Colors.black),
+                  style: TextStyle(fontSize: 18, color: ColorsPallet.black),
                 ),
               ),
             ),

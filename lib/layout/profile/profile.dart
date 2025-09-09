@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_application_1/constant/colors_pallet.dart';
 import 'package:flutter_application_1/layout/profile/ubdate_profile.dart';
 
 class Profile extends StatelessWidget {
@@ -9,12 +10,12 @@ class Profile extends StatelessWidget {
     return DefaultTabController(
       length: 2,
       child: Scaffold(
-        backgroundColor: Colors.black,
+        backgroundColor: ColorsPallet.black,
         appBar: AppBar(
-          backgroundColor: Colors.black,
+          backgroundColor:ColorsPallet.black,
           title: const Text(
             'Profile',
-            style: TextStyle(color: Colors.white),
+            style: TextStyle(color: ColorsPallet.white),
           ),
           elevation: 0,
         ),
@@ -37,7 +38,7 @@ class Profile extends StatelessWidget {
                     children: const [
                       Text(
                         'John Safwat',
-                        style: TextStyle(color: Colors.white, fontSize: 16, fontWeight: FontWeight.bold),
+                        style: TextStyle(color: ColorsPallet.white, fontSize: 16, fontWeight: FontWeight.bold),
                       ),
                       SizedBox(height: 8),
                     ],
@@ -45,7 +46,7 @@ class Profile extends StatelessWidget {
                   const Spacer(),
                   Column(
                     children: const [
-                      Text('12', style: TextStyle(color: Colors.white, fontSize: 16, fontWeight: FontWeight.bold)),
+                      Text('12', style: TextStyle(color:ColorsPallet.white, fontSize: 16, fontWeight: FontWeight.bold)),
                       SizedBox(height: 4),
                       Text('Wish List', style: TextStyle(color: Colors.white70, fontSize: 12)),
                     ],
@@ -53,7 +54,7 @@ class Profile extends StatelessWidget {
                   const SizedBox(width: 16),
                   Column(
                     children: const [
-                      Text('10', style: TextStyle(color: Colors.white, fontSize: 16, fontWeight: FontWeight.bold)),
+                      Text('10', style: TextStyle(color: ColorsPallet.white, fontSize: 16, fontWeight: FontWeight.bold)),
                       SizedBox(height: 4),
                       Text('History', style: TextStyle(color: Colors.white70, fontSize: 12)),
                     ],
@@ -78,8 +79,8 @@ class Profile extends StatelessWidget {
                         );
                       },
                       style: ElevatedButton.styleFrom(
-                        backgroundColor: Colors.yellow,
-                        foregroundColor: Colors.black,
+                        backgroundColor: ColorsPallet.primaryColor,
+                        foregroundColor: ColorsPallet.black,
                         shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(12)),
                       ),
                       child: const Text("Edit Profile"),
@@ -90,8 +91,8 @@ class Profile extends StatelessWidget {
                     onPressed: () {
                     },
                     style: ElevatedButton.styleFrom(
-                      backgroundColor: Colors.red,
-                      foregroundColor: Colors.white,
+                      backgroundColor:ColorsPallet.red,
+                      foregroundColor:ColorsPallet.white,
                       shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(12)),
                     ),
                     child: const Row(
@@ -110,9 +111,9 @@ class Profile extends StatelessWidget {
 
             // Tab Bar
             const TabBar(
-              indicatorColor: Colors.yellow,
-              labelColor: Colors.yellow,
-              unselectedLabelColor: Colors.white,
+              indicatorColor:ColorsPallet.primaryColor,
+              labelColor: ColorsPallet.primaryColor,
+              unselectedLabelColor:ColorsPallet.white,
               tabs: [
                 Tab(icon: Icon(Icons.menu), text: 'Watch List'),
                 Tab(icon: Icon(Icons.folder), text: 'History'),
